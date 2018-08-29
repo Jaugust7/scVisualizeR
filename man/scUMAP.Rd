@@ -4,7 +4,7 @@
 \alias{scUMAP}
 \title{Generate a UMAP visualiztion using ggplot2}
 \usage{
-scUMAP(cds, nComp = NULL, cell_color = NULL,
+scUMAP(cds, nComp = NULL, cell_color = "color",
   scale_color = c("#377EB8", "#4DAF4A", "#E41A1C"))
 }
 \arguments{
