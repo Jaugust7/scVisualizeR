@@ -18,7 +18,7 @@ scUMAP<-function(cds, nComp=NULL, cell_color=NULL, scale_color=c("#377EB8", "#4D
   pData(cds)$UMAP1<-tmp$layout[,1]
   pData(cds)$UMAP2<-tmp$layout[,2]
   
-  tmp2<-ggplot(pData(cds)) + geom_point(aes(x=UMAP1, y=UMAP2, color=cell_color), size=1, alpha=0.5) + theme_bw() + scale_color_manual(values=scale_color) + labs(x="UMAP 1", y ="UMAP 2", color = "cell_color") + monocle:::monocle_theme_opts()
+  tmp2<-ggplot(pData(cds)) + geom_point(aes(x=UMAP1, y=UMAP2, color=pData(cds)$cell_color), size=1, alpha=0.5) + theme_bw() + scale_color_manual(values=scale_color) + labs(x="UMAP 1", y ="UMAP 2", color = "cell_color") + monocle:::monocle_theme_opts()
   return(tmp2) 
 }
 
