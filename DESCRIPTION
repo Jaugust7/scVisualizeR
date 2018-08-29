@@ -2,7 +2,7 @@ Package: augustinR
 Title: A package containing useful functions for single cell analysis
 Description:
 Version: 0.1
-Author: Jonathan Augustin <jaugust7@jhmi.edu>
+Author: Loyal Goff <loyalgoff@jhmi.edu>
 Maintainer: Jonathan Augustin <jaugust7@jhmi.edu>
 Depends: R (>= 3.3.3)
 License: Johns Hopkins Medical Institute
