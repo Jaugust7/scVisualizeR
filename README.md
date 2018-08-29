@@ -1,4 +1,4 @@
-## augustinR
+## scVisualizeR
 
 A simple package with a few functions for scRNAseq gene expression visualization.  
 
