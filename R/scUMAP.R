@@ -14,7 +14,7 @@
 
 scUMAP<-function(cds, nComp=NULL, cell_color="color", scale_color=c("#377EB8", "#4DAF4A", "#E41A1C")){
   x<-cds
-  tmp<-prcomp_irlba(log(t(exprs(x[row.names(subset(fData(x), use_for_ordering == TRUE))])+1)), n = tail(nComp, n=1))
+  tmp<-prcomp_irlba(log(t(as.matrix(exprs(x[row.names(subset(fData(x), use_for_ordering == TRUE))]))+1)), n = tail(nComp, n=1))
   tmp1<-umap(tmp$x[,nComp]) 
   
   pData(x)$UMAP1<-tmp1$layout[,1]
