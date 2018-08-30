@@ -7,11 +7,8 @@ Maintainer: Jonathan Augustin <jaugust7@jhmi.edu>
 Depends: R (>= 3.3.3)
 License: Johns Hopkins Medical Institute
 LazyData: true
+Encoding: UTF-8
 RoxygenNote: 6.1.0.9000
-Imports: 
-        virdis
-        ggplot2
-        monocle
-        umapr
-        
+Imports: viridis, ggplot2, monocle, umapr
+
 
