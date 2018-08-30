@@ -13,8 +13,6 @@ myUMAPPlotMarkers(cds, markers = NULL, logMode = T, shape_by = NULL,
 \item{markers}{a list of gene short names}
 
 \item{logMode}{whether the log of expression data will be used}
-
-\item{scaled}{}
 }
 \value{
 Returns a facet wrapped UMAP embeddings of the same number as the number of marker genes chosen, colored by relative gene expression

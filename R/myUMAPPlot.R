@@ -4,8 +4,6 @@
 #' @param markers a list of gene short names
 #' @param logMode whether the log of expression data will be used
 #' @param color_by choose a color for the cells expressing marker gene of interest
-#' @param shape_by
-#' @param scaled
 #' 
 #' @export
 #' 

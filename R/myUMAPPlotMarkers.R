@@ -3,8 +3,6 @@
 #' @param cds a cell data set
 #' @param markers a list of gene short names
 #' @param logMode whether the log of expression data will be used
-#' @param shape_by
-#' @param scaled
 #' 
 #' @export
 #' 

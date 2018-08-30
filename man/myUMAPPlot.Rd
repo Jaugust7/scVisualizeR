@@ -15,8 +15,6 @@ myUMAPPlot(cds, markers = NULL, logMode = T, color_by = "color",
 \item{logMode}{whether the log of expression data will be used}
 
 \item{color_by}{choose a color for the cells expressing marker gene of interest}
-
-\item{scaled}{}
 }
 \value{
 Returns a facet wrapped UMAP embeddings of the same number as the number of marker genes chosen, colored by relative gene expression
