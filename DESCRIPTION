@@ -8,3 +8,10 @@ Depends: R (>= 3.3.3)
 License: Johns Hopkins Medical Institute
 LazyData: true
 RoxygenNote: 6.1.0.9000
+Imports: 
+        virdis
+        ggplot2
+        monocle
+        umapr
+        
+
