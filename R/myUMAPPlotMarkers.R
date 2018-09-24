@@ -3,7 +3,9 @@
 #' @param cds a cell data set
 #' @param markers a list of gene short names
 #' @param logMode whether the log of expression data will be used
-#' 
+#' @param x the x coordinates that you would like to use
+#' @param y the y coordinates that you would like to use 
+#'
 #' @export
 #' 
 #' @return Returns a facet wrapped UMAP embeddings of the same number as the number of marker genes chosen, colored by relative gene expression
@@ -11,7 +13,7 @@
 #' @examples
 #' 
 
-myUMAPPlotMarkers<-function(cds,markers=NULL,logMode=T,shape_by=NULL,scaled=FALSE){
+myUMAPPlotMarkers<-function(cds,markers=NULL,logMode=T,shape_by=NULL,scaled=FALSE, x_cord="UMAP1", y_cord="UMAP2"){
   tmp<-pData(cds)
   genes<-as.matrix(exprs(cds[rownames(fData(cds)) %in% lookupGeneId(cds,markers)]))
   if(logMode){
@@ -28,7 +30,7 @@ myUMAPPlotMarkers<-function(cds,markers=NULL,logMode=T,shape_by=NULL,scaled=FALS
   #print(head(genes))
   tmp<-merge(tmp,genes,by.x=0,by.y="cell_id")
   #print(head(tmp))
-  p<-ggplot(tmp,aes(x=UMAP1,y=UMAP2))
+  p<-ggplot(tmp,aes_string(x=x_cord,y=y_cord))
   if(is.null(shape_by)){
     p + geom_point(aes_string(color="value"),size=0.5) + facet_wrap('gene_short_name')+ theme_bw() + scale_color_viridis() + monocle:::monocle_theme_opts() 
   }else{
