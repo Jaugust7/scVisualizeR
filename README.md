@@ -6,5 +6,5 @@ How to install:
 
 ```
 library(devtools)
-install_github('jaugust7/augustinR')
+install_github('jaugust7/scVisualizeR')
 ```
