@@ -5,6 +5,7 @@
 #' @param logMode whether the log of expression data will be used
 #' @param x the x coordinates that you would like to use
 #' @param y the y coordinates that you would like to use 
+#' @param size adjust the size of the points used
 #'
 #' @export
 #' 
@@ -13,7 +14,7 @@
 #' @examples
 #' 
 
-myUMAPPlotMarkers<-function(cds,markers=NULL,logMode=T,shape_by=NULL,scaled=FALSE, x_cord="UMAP1", y_cord="UMAP2"){
+myUMAPPlotMarkers<-function(cds,markers=NULL,logMode=T,shape_by=NULL,scaled=FALSE, x_cord="UMAP1", y_cord="UMAP2", size=0.75){
   tmp<-pData(cds)
   genes<-as.matrix(exprs(cds[rownames(fData(cds)) %in% lookupGeneId(cds,markers)]))
   if(logMode){
@@ -32,8 +33,8 @@ myUMAPPlotMarkers<-function(cds,markers=NULL,logMode=T,shape_by=NULL,scaled=FALS
   #print(head(tmp))
   p<-ggplot(tmp,aes_string(x=x_cord,y=y_cord))
   if(is.null(shape_by)){
-    p + geom_point(aes_string(color="value"),size=0.5) + facet_wrap('gene_short_name')+ theme_bw() + scale_color_viridis() + monocle:::monocle_theme_opts() 
+    p + geom_point(aes_string(color="value"),size=size) + facet_wrap('gene_short_name')+ theme_bw() + scale_color_viridis() + monocle:::monocle_theme_opts() 
   }else{
-    p + geom_point(aes_string(color="value",shape=shape_by),size=0.5) + facet_wrap('gene_short_name')+ theme_bw() + scale_color_viridis()+ monocle:::monocle_theme_opts() 
+    p + geom_point(aes_string(color="value",shape=shape_by),size=size) + facet_wrap('gene_short_name')+ theme_bw() + scale_color_viridis()+ monocle:::monocle_theme_opts() 
   }
 }
