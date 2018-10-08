@@ -34,9 +34,9 @@ myUMAPPlot<-function(cds,markers=NULL,logMode=T,color_by="color", alpha = 0.5, s
     #print(head(tmp))
     p<-ggplot(tmp,aes(x=UMAP1,y=UMAP2))
     if(is.null(shape_by)){
-      p + geom_point(aes_string(color=color_by,size="value"), alpha=alpha) + facet_wrap('gene_short_name')+ theme_bw() + scale_color_brewer(palette="Set1") + monocle:::monocle_theme_opts() 
+      p + geom_point(aes_string(color=color_by,size=size), alpha=alpha) + facet_wrap('gene_short_name')+ theme_bw() + scale_color_brewer(palette="Set1") + monocle:::monocle_theme_opts() 
     }else{
-      p + geom_point(aes_string(color=color_by,size="value",shape=shape_by), alpha=alpha) + facet_wrap('gene_short_name')+ theme_bw() + scale_color_brewer(palette="Set1")+ monocle:::monocle_theme_opts() 
+      p + geom_point(aes_string(color=color_by,size=size ,shape=shape_by), alpha=alpha) + facet_wrap('gene_short_name')+ theme_bw() + scale_color_brewer(palette="Set1")+ monocle:::monocle_theme_opts() 
     }
   }else{
     p<-ggplot(tmp,aes(x=UMAP1,y=UMAP2))
