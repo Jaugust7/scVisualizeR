@@ -5,7 +5,7 @@
 #' @param logMode whether the log of expression data will be used
 #' @param color_by choose a color for the cells expressing marker gene of interest
 #' @param alpha determine the transparency of the points
-#' @param size adjust the size of the points used
+#' 
 #' 
 #' @export
 #' 
@@ -14,7 +14,7 @@
 #' @examples
 #' 
 
-myUMAPPlot<-function(cds,markers=NULL,logMode=T,color_by="color", alpha = 0.5, shape_by=NULL,scaled=FALSE, size=0.75){
+myUMAPPlot<-function(cds,markers=NULL,logMode=T,color_by="color", alpha = 0.5, shape_by=NULL,scaled=FALSE){
   tmp<-pData(cds)
   if(!is.null(markers)){
     genes<-as.matrix(exprs(cds[rownames(fData(cds)) %in% lookupGeneId(cds,markers)]))
@@ -34,16 +34,16 @@ myUMAPPlot<-function(cds,markers=NULL,logMode=T,color_by="color", alpha = 0.5, s
     #print(head(tmp))
     p<-ggplot(tmp,aes(x=UMAP1,y=UMAP2))
     if(is.null(shape_by)){
-      p + geom_point(aes_string(color=color_by,size="value"), size=size, alpha=alpha) + facet_wrap('gene_short_name')+ theme_bw() + scale_color_brewer(palette="Set1") + monocle:::monocle_theme_opts() 
+      p + geom_point(aes_string(color=color_by,size="value"), size=0.75, alpha=alpha) + facet_wrap('gene_short_name')+ theme_bw() + scale_color_brewer(palette="Set1") + monocle:::monocle_theme_opts() 
     }else{
-      p + geom_point(aes_string(color=color_by,size="value", size=size, shape=shape_by), alpha=alpha) + facet_wrap('gene_short_name')+ theme_bw() + scale_color_brewer(palette="Set1")+ monocle:::monocle_theme_opts() 
+      p + geom_point(aes_string(color=color_by,size="value", size=0.75, shape=shape_by), alpha=alpha) + facet_wrap('gene_short_name')+ theme_bw() + scale_color_brewer(palette="Set1")+ monocle:::monocle_theme_opts() 
     }
   }else{
     p<-ggplot(tmp,aes(x=UMAP1,y=UMAP2))
     if(is.null(shape_by)){
-      p + geom_point(aes_string(color=color_by),size=size alpha=alpha) + theme_bw() + scale_color_brewer(palette="Set1")+ monocle:::monocle_theme_opts() 
+      p + geom_point(aes_string(color=color_by),size=0.75 alpha=alpha) + theme_bw() + scale_color_brewer(palette="Set1")+ monocle:::monocle_theme_opts() 
     }else{
-      p + geom_point(aes_string(color=color_by,shape=shape_by),size=size, alpha=alpha) + theme_bw() + scale_color_brewer(palette="Set1")+ monocle:::monocle_theme_opts() 
+      p + geom_point(aes_string(color=color_by,shape=shape_by),size=0.75, alpha=alpha) + theme_bw() + scale_color_brewer(palette="Set1")+ monocle:::monocle_theme_opts() 
     }
   }
 }
