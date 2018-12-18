@@ -11,7 +11,7 @@ py_install("umap-learn")
 
 
 
-Install scVisualizeR using the following code:
+Install scVisualizeR using the following:
 
 ```
 library(devtools)
