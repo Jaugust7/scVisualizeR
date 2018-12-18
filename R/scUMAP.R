@@ -7,24 +7,24 @@
 #' 
 #' @export
 #' 
-#' @return Returns a screeplot with the amount of variance explained by each PC
+#' @return Returns a UMAP embedding from expression values colored by the desired element in pData
 #' 
 #' @examples
 #' 
 
 scUMAP<-function(cds, nComp=NULL, cell_color="color", scale_color=c("#377EB8", "#4DAF4A", "#E41A1C")){
   x<-cds
-  tmp<-prcomp_irlba(log(t(as.matrix(exprs(x[row.names(subset(fData(x), use_for_ordering == TRUE))]))+1)), n = tail(nComp, n=1))
-  tmp1<-umap(tmp$x[,nComp]) 
+  tmp<-irlba::prcomp_irlba(log(t(as.matrix(Biobase::exprs(x[row.names(subset(Biobase::fData(x), use_for_ordering == TRUE))]))+1)), n = tail(nComp, n=1))
+  tmp1<-umap::umap(tmp$x[,nComp]) 
   
-  pData(x)$UMAP1<-tmp1$layout[,1]
-  pData(x)$UMAP2<-tmp1$layout[,2]
+  Biobase::pData(x)$UMAP1<-tmp1$layout[,1]
+  Biobase::pData(x)$UMAP2<-tmp1$layout[,2]
   
-  p<-ggplot(pData(x), aes(x=UMAP1, y=UMAP2))
-  p + geom_point(aes_string(color=cell_color), size=1, alpha=0.5) +
-    theme_bw() + 
-    scale_color_manual(values=scale_color) + 
-    labs(x="UMAP 1", y ="UMAP 2", color = "cell_color") + 
+  p<-ggplot2::ggplot(pData(x), aes(x=UMAP1, y=UMAP2))
+  p + ggplot2::geom_point(aes_string(color=cell_color), size=1, alpha=0.5) +
+    ggplot2::theme_bw() + 
+    ggplot2::scale_color_manual(values=scale_color) + 
+    ggplot2::labs(x="UMAP 1", y ="UMAP 2", color = "cell_color") + 
     monocle:::monocle_theme_opts()
 }
 

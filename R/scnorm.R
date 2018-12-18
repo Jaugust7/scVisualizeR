@@ -10,5 +10,5 @@
 #' 
 
 scnorm<-function(cds){
-  log(((as.matrix(exprs(cds))/pData(cds)$Total_mRNAs)*10000) + 1)
+  log(((as.matrix(Biobase::exprs(cds))/Biobase::pData(cds)$Total_mRNAs)*10000) + 1)
 }

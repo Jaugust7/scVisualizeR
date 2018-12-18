@@ -11,7 +11,7 @@
 #' 
 
 lookupGeneName<-function(eset,gene_id){
-  res <- fData(eset[gene_id,])$gene_short_name
+  res <-Biobase::fData(eset[gene_id,])$gene_short_name
   res <- unique(res)
   res
 }

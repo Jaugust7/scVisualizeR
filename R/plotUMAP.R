@@ -15,9 +15,9 @@
 #' 
 
 plotUMAP<-function (cds, cell_color = "color", scale_color = c("#377EB8", "#4DAF4A", "#E41A1C")){
-p <- ggplot(pData(cds), aes(x = UMAP1, y = UMAP2))
-p + geom_point(aes_string(color = cell_color), size = 1, 
-               alpha = 0.5) + theme_bw() + scale_color_manual(values = scale_color) + 
+p <- ggplot2::ggplot(Biobase::pData(cds), aes(x = UMAP1, y = UMAP2))
+p + ggplot2::geom_point(aes_string(color = cell_color), size = 1, 
+               alpha = 0.5) + ggplot2::theme_bw() + ggplot2::scale_color_manual(values = scale_color) + 
   labs(x = "UMAP 1", y = "UMAP 2", color = "cell_color") + 
   monocle:::monocle_theme_opts()
 }

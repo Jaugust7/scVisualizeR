@@ -15,8 +15,8 @@
 cordNormUMAP<-function (cds, nComp = NULL) 
 {
   x <- cds
-  tmp <- prcomp_irlba(t(scnorm(x[row.names(subset(fData(x), use_for_ordering == TRUE))])), n = tail(nComp, n = 1))
-  tmp1 <- umap(tmp$x[, nComp])
+  tmp <- irlba::prcomp_irlba(t(scnorm(x[row.names(subset(fData(x), use_for_ordering == TRUE))])), n = tail(nComp, n = 1))
+  tmp1 <- umap::umap(tmp$x[, nComp])
   pData(x)$UMAP1 <- tmp1$layout[, 1]
   pData(x)$UMAP2 <- tmp1$layout[, 2]
   return(x)

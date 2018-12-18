@@ -11,6 +11,6 @@
 #' 
 
 PCpicker<-function(cds, num_pcs=NULL){
-  tmp<-prcomp_irlba(log(t(as.matrix(exprs(cds[row.names(subset(fData(cds), use_for_ordering == TRUE))]))+1)), n = num_pcs)
+  tmp<-irlba::prcomp_irlba(log(t(as.matrix(Biobase::exprs(cds[row.names(subset(Biobase::fData(cds), use_for_ordering == TRUE))]))+1)), n = num_pcs)
   screeplot(tmp, npcs=num_pcs)
   }
