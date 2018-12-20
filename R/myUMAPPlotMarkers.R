@@ -16,7 +16,7 @@
 
 myUMAPPlotMarkers<-function(cds,markers=NULL,logMode=T,shape_by=NULL,scaled=FALSE, x_cord="UMAP1", y_cord="UMAP2", size=0.75){
   tmp<-Biobase::pData(cds)
-  genes<-as.matrix(Biobase::exprs(cds[rownames(Biobase::Biobase::fData(cds)) %in% lookupGeneId(cds,markers)]))
+  genes<-as.matrix(Biobase::exprs(cds[rownames(Biobase::fData(cds)) %in% lookupGeneId(cds,markers)]))
   if(logMode){
     genes<-log10(genes+1)
   }
