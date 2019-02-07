@@ -17,7 +17,7 @@ scnormUMAP(cds, nComp = NULL, cell_color = "color",
 \item{scale_color}{a vector of colors you'd like to use for your data set}
 }
 \value{
-Returns a screeplot with the amount of variance explained by each PC
+Returns a UMAP embedding from normalized expression values colored by the desired element in pData
 }
 \description{
 Generate a UMAP visualization from read depth normalized expression matrix
