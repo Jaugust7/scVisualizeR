@@ -18,6 +18,7 @@ plotPatterns<-function (cds, decomp, nPatterns = c(1:5), x_cord = "UMAP1", y_cor
 {
   tmp <- Biobase::pData(cds)
   tmp2<-as.data.frame(decomp$H)
+  colnames(tmp2)<-pData(dat.cds)$cell_id
   patterns<-tmp2[nPatterns,]
   rownames(patterns)<-nPatterns
   patterns <- t(patterns)
