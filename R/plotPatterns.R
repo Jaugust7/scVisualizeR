@@ -1,6 +1,6 @@
 #' Returns UMAP visualizations colored by pattern weight as determined by NNLM::nnmf()
 #'
-#' @param cds an expression set or cell data set (CDS)
+#' @param eset an expression set or cell data set (CDS)
 #' @param decomp output from NNLM::nnmf()
 #' @param nPatterns a vector of patterns that you'd like to visualize
 #' @param x_cord the x cordinates to use for visualization ("UMAP1" by default)
@@ -14,11 +14,11 @@
 #' @examples
 #'
 
-plotPatterns<-function (cds, decomp, nPatterns = c(1:5), x_cord = "UMAP1", y_cord = "UMAP2", size = 0.5)
+plotPatterns<-function (eset, decomp, nPatterns = c(1:5), x_cord = "UMAP1", y_cord = "UMAP2", size = 0.5)
 {
-  tmp <- Biobase::pData(cds)
+  tmp <- Biobase::pData(eset)
   tmp2<-as.data.frame(decomp$H)
-  colnames(tmp2)<-pData(dat.cds)$cell_id
+  colnames(tmp2)<-pData(eset)$cell_id
   patterns<-tmp2[nPatterns,]
   rownames(patterns)<-nPatterns
   patterns <- t(patterns)
