@@ -1,7 +1,7 @@
 Package: scVisualizeR
 Title: A package containing useful functions for single cell analysis
 Description:
-Version: 0.2
+Version: 0.3
 Author: Jonathan Augustin <jaugust7@jhmi.edu>
 Maintainer: Jonathan Augustin <jaugust7@jhmi.edu>
 Depends: R (>= 4.2.1)
