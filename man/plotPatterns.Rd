@@ -5,7 +5,7 @@
 \title{Returns UMAP visualizations colored by pattern weight as determined by NNLM::nnmf()}
 \usage{
 plotPatterns(
-  eset,
+  cds,
   decomp,
   nPatterns = c(1:5),
   x_cord = "UMAP1",
@@ -14,8 +14,6 @@ plotPatterns(
 )
 }
 \arguments{
-\item{eset}{an expression set or cell data set (CDS)}
-
 \item{decomp}{output from NNLM::nnmf()}
 
 \item{nPatterns}{a vector of patterns that you'd like to visualize}
@@ -25,6 +23,8 @@ plotPatterns(
 \item{y_cord}{the y cordinates to use for visualization ("UMAP2" by default)}
 
 \item{size}{the size to use for the points}
+
+\item{eset}{an expression set or cell data set (CDS)}
 }
 \value{
 Returns UMAP visualizations colored by pattern weight as determined by NNLM::nnmf()
