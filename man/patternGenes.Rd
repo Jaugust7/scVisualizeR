@@ -19,6 +19,3 @@ Returns a list of data frames containing gene short names and gene weights for e
 \description{
 Generate a list of data frames with ranked ordered genes from patterns found using NNLM::nnmf()
 }
-\examples{
-
-}

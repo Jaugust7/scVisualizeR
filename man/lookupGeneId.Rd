@@ -4,10 +4,10 @@
 \alias{lookupGeneId}
 \title{Returns the gene ID given a gene short name as input}
 \usage{
-lookupGeneId(eset, gene_names)
+lookupGeneId(cds, gene_names)
 }
 \arguments{
-\item{eset}{an expression set or cell data set (CDS)}
+\item{cds}{an expression set or cell data set (CDS)}
 
 \item{gene_names}{a list of gene short names}
 }
@@ -16,7 +16,4 @@ Returns a vector of gene IDs
 }
 \description{
 Returns the gene ID given a gene short name as input
-}
-\examples{
-
 }

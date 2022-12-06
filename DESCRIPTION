@@ -2,11 +2,11 @@ Package: scVisualizeR
 Title: A package containing useful functions for single cell analysis
 Description:
 Version: 0.2
-Author: Loyal Goff <loyalgoff@jhmi.edu> & Jonathan Augustin <jaugust7@jhmi.edu>
+Author: Jonathan Augustin <jaugust7@jhmi.edu>
 Maintainer: Jonathan Augustin <jaugust7@jhmi.edu>
-Depends: R (>= 3.5.1)
+Depends: R (>= 4.2.1)
 License: Johns Hopkins Medical Institute
 LazyData: true
 Encoding: UTF-8
-RoxygenNote: 6.1.1
-Imports: viridis, ggplot2, monocle, umap, NNLM, Matrix
+RoxygenNote: 7.2.1
+Imports: ggplot2, monocle3, Matrix, cowplot, stats

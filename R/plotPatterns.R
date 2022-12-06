@@ -11,12 +11,12 @@
 #'
 #' @return Returns UMAP visualizations colored by pattern weight as determined by NNLM::nnmf()
 #'
-#' @examples
+#'
 #'
 
-plotPatterns<-function (eset, decomp, nPatterns = c(1:5), x_cord = "UMAP1", y_cord = "UMAP2", size = 0.5)
+plotPatterns<-function (cds, decomp, nPatterns = c(1:5), x_cord = "UMAP1", y_cord = "UMAP2", size = 0.5)
 {
-  tmp <- Biobase::pData(eset)
+  tmp <- monocle3::pData(eset)
   tmp2<-as.data.frame(decomp$H)
   colnames(tmp2)<-pData(eset)$cell_id
   patterns<-tmp2[nPatterns,]

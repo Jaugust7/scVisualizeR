@@ -17,6 +17,3 @@ Returns a vector of gene short names
 \description{
 Returns the gene short name given a gene ID as input
 }
-\examples{
-
-}
