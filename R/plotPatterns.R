@@ -14,21 +14,22 @@
 #'
 #'
 
-plotPatterns<-function (cds, decomp, nPatterns = c(1:5), x_cord = "UMAP1", y_cord = "UMAP2", size = 0.5)
-{
-  tmp <- monocle3::pData(eset)
-  tmp2<-as.data.frame(decomp$H)
-  colnames(tmp2)<-pData(eset)$cell_id
+plotPatterns<-function (cds, decomp, nPatterns = c(1:5), x_cord = "UMAP1", y_cord = "UMAP2", size = 0.5){
+  tmp <- monocle3::pData(cds) 
+  tmp$UMAP1 <-SingleCellExperiment::reducedDims(cds)$UMAP[,1]
+  tmp$UMAP2 <-SingleCellExperiment::reducedDims(cds)$UMAP[,2]
+  tmp2<-t(as.data.frame(decomp$w))
+  colnames(tmp2)<-pData(cds)$barcode
   patterns<-tmp2[nPatterns,]
   rownames(patterns)<-nPatterns
   patterns <- t(patterns)
   patterns <- reshape2::melt(patterns)
-  colnames(patterns) <- c("cell_id", "pattern_id", "value")
-  tmp <- merge(tmp, patterns, by.x = 0, by.y = "cell_id")
+  colnames(patterns) <- c("barcode", "pattern_id", "value")
+  tmp <- as.data.frame(left_join(as.data.frame(tmp), patterns))
   p <- ggplot2::ggplot(tmp, aes_string(x = "UMAP1", y = "UMAP2"))
 
-  p + ggplot2::geom_point(aes_string(color = "value")) +
+  p + ggplot2::geom_point(aes(color = scale(value)), size = size) +
       ggplot2::facet_wrap("pattern_id") +
       ggplot2::theme_bw() + ggplot2::scale_color_gradient(low = "gray95",
-      high = "darkblue") + monocle:::monocle_theme_opts()
-    }
+      high = "darkblue") + monocle3:::monocle_theme_opts()
+}
